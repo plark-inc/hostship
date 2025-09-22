@@ -7,9 +7,8 @@ It installs Docker, runs the containers, and exposes an endpoint to update the  
 
 * Go 1.24+ installed
 
-## Application definition 
-
-Firstly, you define a single compose.json and upload it to an S3 bucket. The compose.json available on the url points to the latest version of your application. Your machine keeps a local copy, representing the version currently running. When an update is triggered, the CLI fetches the compose file and overrides the local one.
+## Docker Compose definition 
+First, define a single compose.json file and upload it to an S3 bucket. The file at the S3 URL would always point to the latest version. When an update is triggered, the CLI fetches this file and overrides the local one.
 
 ```json
 {
@@ -45,25 +44,20 @@ hostship setup <compose-url>
 ```Shell
 hostship start
 ```
-
 - Starts the service
 
 ```Shell
 hostship hotreload
 ```
-
-- Runs an HTTP listener, that when triggered fetches the latest `compose.json` from `x-metadata.url`
+- Runs an HTTP listener to trigger updates.
 - The server listener validates the key before updating.
-
 
 ```Shell
 hostship systemd install
 ```
-
 - To ensure the service listener runs in the background and persists across reboots, this configures a systemd service.
 
 ## Usage
-
 ```bash
 # Show help
 hostship -h
@@ -77,20 +71,22 @@ hostship setup https://example.com/compose.json
 # Start the container
 hostship start
 
-# Dry-run to preview Docker commands
+# Dry-run
 hostship start --dry-run
 
 # Verbose logging
 hostship start --verbose
 
-# Hot-reload only mode (hidden command)
+# Hot-reload service listener (hidden command)
 hostship hotreload --verbose
 
 # Installs the hotreload as a systems service
 hostship systemd install
 
+# Removes the systemd service
+hostship systemd remove
 
-# View live logs for a service
+# View live logs of your service
 hostship logs caddy
 ```
 
