@@ -40,8 +40,8 @@ hostship setup <compose-url>
 
 - Installs Docker (if missing).
 - Downloads compose.json
-- Writes a `.env` that includes an UPDATE_URL. Hitting this endpoint will update your compose.json file to the latest version.
-`UPDATE_URL=http://172.17.0.1:8080/update/<KEY>`
+- Writes a `.env` that includes an DEPLOY_URL (ex: `DEPLOY_URL=http://172.17.0.1:8080/update/<KEY>`). Hitting this endpoint will update your compose.json file to the latest version.
+
 
 ```Shell
 hostship start
@@ -51,7 +51,7 @@ hostship start
 ```Shell
 hostship hotreload
 ```
-- Runs an HTTP listener to trigger updates.
+- Runs the HTTP listener to trigger updates.
 - The server listener validates the key before updating.
 
 ```Shell
