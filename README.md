@@ -8,7 +8,7 @@ It installs Docker, runs the containers, and exposes an endpoint to update the  
 * Go 1.24+ installed
 
 ## Docker Compose definition 
-First, define a single compose.json file and upload it to an S3 bucket. The file at the S3 URL would always point to the latest version. When an update is triggered, the CLI fetches this file and overrides the local one.
+First, define a single compose.json file and upload it to an S3 bucket. The file at the S3 URL points to the latest version. When an update is triggered, the CLI fetches this file and overrides the local one.
 
 ```json
 {
@@ -37,8 +37,8 @@ hostship setup <compose-url>
 ```
 
 - Installs Docker (if missing).
-- downloads compose.json
-- Writes a `.env` that includes an UPDATE_URL. Hitting this endpoint will update your compose to the latest version.
+- Downloads compose.json
+- Writes a `.env` that includes an UPDATE_URL. Hitting this endpoint will update your compose.json file to the latest version.
 `UPDATE_URL=http://172.17.0.1:8080/update/<KEY>`
 
 ```Shell
@@ -101,7 +101,7 @@ bash <(curl -fsSL https://cli.hostship.com/install.sh)
 
 It downloads the correct archive for your platform, installs the `hostship` binary to `/usr/local/bin`. 
 
-Once installed you can run `hostship update` at any time to download the  latest release, it automatically reinstalls the systemd service if active.
+Once installed, you can run `hostship update` at any time to download the  latest release, it automatically reinstalls the systemd service if active.
 
 
 ## Releasing
