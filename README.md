@@ -5,10 +5,7 @@ It installs Docker, runs the containers, and exposes an endpoint to update the  
  
 ## Prerequisites
 
-* Go 1.20+ installed
-* Internet access (for registry pulls)
-* Permissions to install packages
-* S3 bucket
+* Go 1.24 installed
 
 ## Application definition 
 
