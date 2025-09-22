@@ -2,6 +2,8 @@
 
 A Go-based CLI tool to run an application defined in a Docker Compose JSON file. 
 It installs Docker, runs the containers, and exposes an endpoint to update the  compose services on request. 
+
+Curious about the motivations behind Hostship? Check out the full story in the blog post: [Why I built Hostship](https://plark.com/hostship-dokku-alternative)
  
 ## Prerequisites
 
