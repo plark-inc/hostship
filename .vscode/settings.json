@@ -1,0 +1,8 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["compose.json", "docker-compose.json"],
+      "url": "./.vscode/compose-schema.json"
+    }
+  ]
+}

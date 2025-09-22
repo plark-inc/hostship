@@ -1,0 +1,14 @@
+[Unit]
+Description=Hostship Docker Service Manager
+After=network.target docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/hostship hotreload
+WorkingDirectory=/root
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+

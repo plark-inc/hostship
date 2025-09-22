@@ -1,0 +1,43 @@
+# .goreleaser.yaml
+version: 2
+project_name: hostship
+
+release:
+  disable: true   # We’re not making a GitHub/GitLab release
+
+builds:
+  - id: hostship
+    main: ./main.go
+    goos: [linux]
+    goarch: [amd64, arm64]
+    ldflags:
+      - -s -w -X main.version={{ .Env.VERSION }} -X main.channel={{ .Env.RELEASE_CHANNEL }}
+    env:
+      - CGO_ENABLED=0
+
+archives:
+  - format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+    wrap_in_directory: false
+
+checksum:
+  name_template: "{{ .ProjectName }}_checksums.txt"
+
+blobs:
+  # - Uncomment if you want to keep all versions of CLI available
+  # - provider: s3
+  #   endpoint: "https://t3.storage.dev"
+  #   bucket: "hostship"
+  #   region: auto
+  #   directory: "releases/{{ .Version }}"
+  #   include_meta: true        
+  #   ids:
+  #     - default
+  - provider: s3
+    endpoint: "https://t3.storage.dev"
+    bucket: "hostship"
+    region: auto
+    directory: "{{ .Env.RELEASE_CHANNEL }}"
+    include_meta: true
+    ids:
+      - default
