@@ -101,7 +101,7 @@ A shell script is provided to download the latest CLI and installs `hostship` bi
 bash <(curl -fsSL https://cli.hostship.com/install.sh)
 ```
 
-Once installed, you can run `hostship update` at any time to download the latest release.
+Once installed, you can run `hostship update` at any time to update the CLI.
 
 ## Releasing
 
