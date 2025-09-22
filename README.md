@@ -5,7 +5,7 @@ It installs Docker, runs the containers, and exposes an endpoint to update the  
  
 ## Prerequisites
 
-* Go 1.24 installed
+* Go 1.24+ installed
 
 ## Application definition 
 
