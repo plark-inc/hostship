@@ -93,18 +93,15 @@ hostship logs caddy
 ```
 
 
-## Installing the Binary
+## Installing the CLI
 
-A shell script is provided to download the latest build from the S3 bucket. Pass `prod` (default) or `dev` to choose the channel.
+A shell script is provided to download the latest CLI and installs `hostship` binary to `/usr/local/bin`. 
 
 ```bash
 bash <(curl -fsSL https://cli.hostship.com/install.sh)
 ```
 
-It downloads the correct archive for your platform, installs the `hostship` binary to `/usr/local/bin`. 
-
-Once installed, you can run `hostship update` at any time to download the  latest release, it automatically reinstalls the systemd service if active.
-
+Once installed, you can run `hostship update` at any time to download the latest release.
 
 ## Releasing
 
