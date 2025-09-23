@@ -1,4 +1,4 @@
-# Hostship CLI
+# Hostship
 
 A Go-based CLI tool to run an application defined in a Docker Compose JSON file. 
 It installs Docker, runs the containers, and exposes an endpoint to update the  compose services on request. 
